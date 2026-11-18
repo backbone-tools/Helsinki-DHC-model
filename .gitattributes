@@ -1,0 +1,8 @@
+* text=auto
+
+# Windows command files keep CRLF on every platform
+*.cmd text eol=crlf
+*.bat text eol=crlf
+
+*.xlsx binary
+*.gdx binary

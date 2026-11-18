@@ -1,0 +1,38 @@
+cff-version: 1.2.0
+message: "If you use the Helsinki DHC model in published work, please cite the article below."
+title: "Helsinki DHC model"
+type: dataset
+authors:
+  - family-names: Lindroos
+    given-names: Tomi J.
+  - family-names: Pursiheimo
+    given-names: Esa
+  - family-names: Hiltunen
+    given-names: Pauli
+  - family-names: Sundell
+    given-names: Dennis
+  - family-names: Kirppu
+    given-names: Heidi
+repository-code: "https://github.com/backbone-tools/Helsinki-DHC-model"
+license: CC-BY-4.0
+preferred-citation:
+  type: article
+  title: "Optimal investment analysis for heat pumps and nuclear heat in decarbonised Helsinki metropolitan district heating system"
+  authors:
+    - family-names: Pursiheimo
+      given-names: E.
+    - family-names: Lindroos
+      given-names: T. J.
+    - family-names: Sundell
+      given-names: D.
+    - family-names: Rämä
+      given-names: M.
+    - family-names: Tulkki
+      given-names: V.
+  journal: "Energy Storage and Saving"
+  volume: 1
+  issue: 2
+  start: 80
+  end: 92
+  year: 2022
+  doi: "10.1016/j.enss.2022.03.001"

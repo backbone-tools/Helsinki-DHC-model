@@ -1,0 +1,33 @@
+# This folder also holds run outputs, scratch work and the source publications of the
+# validation statistics, none of which is published. So everything is ignored, and the
+# published files are listed back in below.
+/*
+!/.gitignore
+!/.gitattributes
+!/README.md
+!/LICENSE
+!/CITATION.cff
+!/run-schedule-1d.cmd
+!/run-schedule-365d.cmd
+!/HelsinkiDHC-validation.html
+!/inputData/
+!/results/
+!/validation-scripts/
+
+# inputData: the workbook and the GAMS files only. Copies of the workbook, Excel's lock
+# file, inputData.gdx and tempFiles/ are written by Excel or by a run.
+/inputData/*
+!/inputData/HelsinkiDHC-inputData.xlsx
+!/inputData/1_options.gms
+!/inputData/changes.inc
+!/inputData/modelsInit.gms
+!/inputData/scheduleInit.gms
+!/inputData/timeAndSamples.inc
+
+# results: an empty folder for the run files to write into
+/results/*
+!/results/.gitkeep
+
+# validation-scripts
+__pycache__/
+*.pyc
