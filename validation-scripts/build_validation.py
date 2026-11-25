@@ -15,7 +15,6 @@ are written by hand in TEXT and IN_SHORT; every number in them is computed, thro
 {gap:Area:key} style token (see fill).
 """
 import datetime
-import json
 import re
 import sys
 from html import escape
@@ -72,10 +71,8 @@ def gather():
         info = (run / "info.txt").read_text(errors="replace")
         core = re.search(r"git_version\s*:\s*(\S+)", info)
         horizon = re.search(r"Horizon:\s*(\d+)", info)
-        cell = json.loads((run / "sweep_cell.json").read_text())
         checks.append(dict(year=y, problems=problems, solves=n_solves, steps=n_steps, core=core.group(1) if core else "?",
-                           horizon=int(horizon.group(1)) if horizon else None,
-                           toolchain=f"GAMS {cell.get('gams_version', '?')} + {cell.get('solver', '?')}"))
+                           horizon=int(horizon.group(1)) if horizon else None))
         influx.update(supply_input(y))
         print(f"[{'ok' if not problems else 'CHECK'}] {y}: {n_solves} solves, {n_steps} steps"
               + ("; " + "; ".join(problems) if problems else ""), flush=True)
@@ -420,7 +417,6 @@ def page(D, checks):
     saved = datetime.datetime.fromtimestamp(
         (ROUND / "workbooks" / "HelsinkiDHC-inputData-original.xlsx").stat().st_mtime).strftime("%Y-%m-%d %H:%M")
     cores = ", ".join(sorted({c["core"] for c in checks}))
-    toolchains = ", ".join(sorted({c["toolchain"] for c in checks}))
     short = "".join(f"<li><b>{lead}</b> {fill(text, D)}</li>" for lead, text in IN_SHORT)
     return f"""<!doctype html>
 <html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
@@ -441,7 +437,7 @@ percent: a small fuel can be far off in percent and matter little, and too much 
 another is a wrong split, which the fuel bars show, not a wrong total. Hover a point for its value.</p>
 <dl class="meta">
 <div><dt>Workbook</dt><dd>HelsinkiDHC-inputData.xlsx, saved {saved}</dd></div>
-<div><dt>Runs</dt><dd>{len(checks)} calendar years, {escape(toolchains)}</dd></div>
+<div><dt>Runs</dt><dd>{len(checks)} calendar years</dd></div>
 <div><dt>Backbone</dt><dd>{escape(cores)}</dd></div>
 <div><dt>Built</dt><dd>{datetime.datetime.now():%Y-%m-%d %H:%M}</dd></div>
 </dl>
