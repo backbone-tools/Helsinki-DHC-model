@@ -29,6 +29,17 @@ Espoo (with Kauniainen and the centre of Kirkkonummi) and Vantaa - built for the
 
 
 
+## Validation report
+
+**[Read the validation report online](https://htmlpreview.github.io/?https://github.com/backbone-tools/Helsinki-DHC-model/blob/main/HelsinkiDHC-validation.html)**
+
+The report compares ten history runs, the calendar years 2016-2025, with the published district
+heating statistics and verified emissions of those years. GitHub shows
+`HelsinkiDHC-validation.html` only as source text, so the link opens it through
+htmlpreview.github.io. *Validation* below says how the report is rebuilt.
+
+
+
 ## Citation
 
 If you use the Helsinki DHC model in published work, please cite the article that documents and
@@ -218,7 +229,9 @@ copy. Git ignores both copies, so `git pull` leaves them alone.
 
 `HelsinkiDHC-validation.html` compares ten history runs, the calendar years 2016-2025, with
 the published statistics of those years: Energiateollisuus ry's district heating statistics
-and the Energy Authority's verified EU ETS emissions per installation. Open it in a browser.
+and the Energy Authority's verified EU ETS emissions per installation. Read it
+[online](https://htmlpreview.github.io/?https://github.com/backbone-tools/Helsinki-DHC-model/blob/main/HelsinkiDHC-validation.html),
+or open the local file in a browser.
 
 `validation-scripts/` rebuilds it. `statistics.csv` holds every statistic the report reads, each
 with the file, sheet and cell it came from. The source workbooks are not redistributed here and
